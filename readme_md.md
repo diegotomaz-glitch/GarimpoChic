@@ -54,18 +54,6 @@ A página conta com pontos de contato diretos para facilitar o atendimento aos c
 * **📸 Instagram:** [@cjgarimpochic](https://www.instagram.com/cjgarimpochic/)
 * **💬 WhatsApp:** [Enviar mensagem no WhatsApp](https://wa.me/5548999007998?text=Ol%C3%A1%20Garimpo%20Chic%21%20Gostaria%20de%20conhecer%20as%20pe%C3%A7as%20dispon%C3%ADveis.)
 
-## 💻 Como Executar o Projeto
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/garimpo-chic.git
-   ```
-2. Acesse a pasta do projeto:
-   ```bash
-   cd garimpo-chic
-   ```
-3. Abra o arquivo `index.html` diretamente no seu navegador ou utilize a extensão **Live Server** no VS Code.
-
 ## 👨‍💻 Autor
 
 Desenvolvido por **Diego Tomaz**  
