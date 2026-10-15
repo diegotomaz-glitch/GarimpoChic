@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Garimpo Chic Brechó — peças escolhidas com carinho, achadinhos únicos e moda acessível em Palhoça, SC." />
+  <title>Garimpo Chic • Brechó</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f2eae8;
+      --cream-2: #f8f2ee;
+      --blush: #dab9b0;
+      --rose: #b96e72;
+      --rose-soft: #d69a9b;
+      --brown: #7c5131;
+      --brown-dark: #5c3d2a;
+      --text: #3f3028;
+      --line: rgba(124,81,49,.22);
+      --white: #fffaf7;
+      --shadow: 0 18px 50px rgba(92,61,42,.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--cream);
+      font-family: "Montserrat", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--blush);
+      opacity: .34;
+      filter: blur(.2px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .blob.one { width: 330px; height: 330px; left: -190px; top: 100px; }
+    .blob.two { width: 260px; height: 260px; right: -140px; top: 730px; }
+    .blob.three { width: 200px; height: 200px; left: -120px; bottom: 420px; opacity: .18; }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(242,234,232,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(124,81,49,.12);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: .08em;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      transition: color .2s ease;
+    }
+    nav a:hover { color: var(--rose); }
+
+    .nav-cta {
+      border: 1px solid var(--brown);
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: .25s ease;
+    }
+    .nav-cta:hover {
+      background: var(--brown);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      align-items: center;
+      gap: 58px;
+      padding: 74px 0 86px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--brown);
+    }
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: var(--rose);
+    }
+
+    h1 {
+      margin: 20px 0 0;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      font-size: clamp(68px, 8vw, 112px);
+      line-height: .78;
+      letter-spacing: -.035em;
+      color: var(--brown-dark);
+    }
+
+    .script {
+      display: block;
+      margin-top: -3px;
+      margin-left: 62px;
+      font-family: "Allura", cursive;
+      font-size: clamp(74px, 8vw, 122px);
+      line-height: .9;
+      color: var(--rose);
+      transform: rotate(-3deg);
+    }
+
+    .subtitle {
+      max-width: 570px;
+      margin: 30px 0 0;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #5d4b41;
+    }
+
+    .subtitle strong { color: var(--rose); }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      transition: .25s ease;
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: var(--brown);
+      box-shadow: 0 10px 25px rgba(124,81,49,.2);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(124,81,49,.26); }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--brown);
+      background: rgba(255,250,247,.45);
+    }
+    .btn-secondary:hover { background: var(--white); }
+
+    .hero-note {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      letter-spacing: .04em;
+      color: #756158;
+    }
+
+    .heart {
+      color: var(--rose);
+      font-size: 22px;
+    }
+
+    .hero-photo {
+      position: relative;
+      min-height: 620px;
+      border-radius: 190px 190px 22px 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #e8ddd3;
+      border: 8px solid rgba(255,250,247,.68);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .photo-badge {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 18px;
+      background: rgba(242,234,232,.91);
+      border: 1px solid rgba(185,110,114,.5);
+      color: var(--brown);
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.05;
+      transform: rotate(7deg);
+    }
+
+    .photo-badge::after {
+      content: "♡";
+      position: absolute;
+      top: 7px;
+      right: 15px;
+      color: var(--rose);
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 54px;
+    }
+
+    .section-kicker {
+      color: var(--rose);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 12px 0 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 500;
+      line-height: .95;
+      color: var(--brown-dark);
+    }
+
+    .section-heading p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #6d5a50;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 34px 30px;
+      background: rgba(255,250,247,.58);
+      border: 1px solid rgba(124,81,49,.12);
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(92,61,42,.06);
+      transition: .25s ease;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ead4ce;
+      color: var(--brown);
+      margin-bottom: 23px;
+    }
+    .icon svg { width: 29px; height: 29px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--brown-dark);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.75;
+      color: #705f56;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 60px;
+      align-items: center;
+      background: var(--brown);
+      color: var(--white);
+      border-radius: 34px;
+      padding: 64px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .story::before {
+      content: "♡";
+      position: absolute;
+      right: 25px;
+      top: -50px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 230px;
+      color: rgba(255,255,255,.07);
+    }
+
+    .story-logo {
+      display: flex;
+      justify-content: center;
+    }
+    .story-logo img {
+      width: min(310px, 80%);
+      filter: drop-shadow(0 18px 28px rgba(0,0,0,.14));
+    }
+
+    .story-copy .section-kicker { color: #e7b4b1; }
+    .story-copy h2 { color: var(--white); }
+    .story-copy p {
+      color: rgba(255,250,247,.82);
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 0 0 24px;
+    }
+
+    .signature {
+      font-family: "Allura", cursive;
+      color: #e7b4b1;
+      font-size: 44px;
+    }
+
+    .quote {
+      margin-top: 22px;
+      padding: 18px 0 0;
+      border-top: 1px solid rgba(255,255,255,.2);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .visit {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .visit-card {
+      padding: 36px;
+      background: rgba(255,250,247,.65);
+      border: 1px solid rgba(124,81,49,.12);
+      border-radius: 24px;
+    }
+
+    .visit-card h3 {
+      margin: 0 0 15px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      color: var(--brown-dark);
+    }
+
+    .visit-card p {
+      margin: 0 0 20px;
+      color: #6e5a50;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .location-pin {
+      color: var(--rose);
+      font-size: 26px;
+      margin-right: 8px;
+    }
+
+    .mini-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 15px 0;
+    }
+
+    .mini-info strong {
+      display: block;
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 3px;
+    }
+    .mini-info span { font-size: 13px; color: #725f55; }
+
+    .cta {
+      margin-top: 100px;
+      padding: 74px 30px;
+      text-align: center;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(218,185,176,.5), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(185,110,114,.12), transparent 32%),
+        var(--cream-2);
+      border: 1px solid rgba(124,81,49,.13);
+    }
+
+    .cta h2 { margin-bottom: 8px; }
+    .cta .script { margin: -3px 0 15px; }
+
+    footer {
+      margin-top: 80px;
+      background: var(--brown-dark);
+      color: rgba(255,250,247,.82);
+      padding: 36px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+    }
+
+    .footer-brand img { width: 52px; }
+
+    .footer-text {
+      font-size: 11px;
+      line-height: 1.6;
+      text-align: right;
+      letter-spacing: .06em;
+    }
+
+    @media (max-width: 900px) {
+      nav ul { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 50px; }
+      .hero-photo { min-height: 540px; }
+      .hero-photo img { min-height: 540px; }
+      .cards { grid-template-columns: 1fr; }
+      .story { grid-template-columns: 1fr; padding: 45px 28px; text-align: center; }
+      .visit { grid-template-columns: 1fr; }
+      .story-logo img { width: 240px; }
+      .script { margin-left: 35px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .nav { min-height: 72px; }
+      .brand span { display: none; }
+      .nav-cta { padding: 10px 13px; font-size: 10px; }
+      .hero { padding: 40px 0 60px; }
+      h1 { font-size: 67px; }
+      .script { font-size: 76px; margin-left: 20px; }
+      .hero-photo { min-height: 470px; border-radius: 130px 130px 18px 18px; }
+      .hero-photo img { min-height: 470px; }
+      .photo-badge { width: 100px; height: 100px; font-size: 14px; }
+      .section { padding: 72px 0; }
+      .story { border-radius: 24px; }
+      .cta { margin-top: 70px; padding: 60px 20px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-text { text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#inicio" aria-label="Garimpo Chic">
+          <img src="imagens/logo2.png" alt="Garimpo Chic • Brechó" />
+          <span>GARIMPO CHIC</span>
+        </a>
+
+        <nav aria-label="Navegação principal">
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#garimpo">O Garimpo</a></li>
+            <li><a href="#achadinhos">Achadinhos</a></li>
+            <li><a href="#visite">Visite</a></li>
+          </ul>
+        </nav>
+
+        <a class="nav-cta" href="#visite">Conheça</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="container hero" id="inicio">
+        <div>
+          <div class="eyebrow">Seja bem-vinda ao</div>
+
+          <h1>GARIMPO<span class="script">Chic</span></h1>
+
+          <p class="subtitle">
+            Um cantinho criado para quem ama <strong>moda, estilo</strong> e aquele
+            <strong>achadinho especial.</strong>
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#achadinhos">Descobrir o garimpo</a>
+            <a class="btn btn-secondary" href="https://maps.app.goo.gl/sgo7xtmHqxFV8XDq6" target="_blank" rel="noopener">Como chegar</a>
+          </div>
+
+          <div class="hero-note">
+            <span class="heart">♡</span>
+            <span>Garimpe. Apaixone-se. Use. Repita.</span>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <img src="imagens/arara.jpg" alt="Garimpo Chic • Brechó" />
+          
+        </div>
+      </section>
+
+      <section class="section" id="garimpo">
+        <div class="container story">
+          <div class="story-logo">
+            <img src="imagens/logo2.png" alt="Garimpo Chic • Brechó" />
+          </div>
+
+          <div class="story-copy">
+            <div class="section-kicker">Garimpo Chic • Brechó</div>
+            <h2>Seu estilo merece um achado especial.</h2>
+            <p>
+              O Garimpo Chic nasceu para transformar o ato de garimpar em uma
+              experiência gostosa: descobrir peças, experimentar possibilidades e
+              levar para casa aquilo que combina com você.
+            </p>
+            <p>
+              Aqui, cada peça pode ser o começo de uma nova composição, uma nova
+              história e um novo jeito de expressar seu estilo.
+            </p>
+            <div class="signature">Garimpe com carinho ♡</div>
+            <div class="quote">“Moda que transforma.<br>Estilo que inspira.”</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="visite">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-kicker">Venha conhecer</div>
+            <h2>Seu próximo achado pode estar aqui.</h2>
+            <p>Visite o Garimpo Chic e descubra as novidades de perto.</p>
+          </div>
+
+          <div class="visit">
+            <div class="visit-card">
+              <h3>Onde encontrar</h3>
+
+              <div class="mini-info">
+                <span class="location-pin">⌖</span>
+                <div>
+                  <strong>Localização</strong>
+                  <span>Dentro do CJ Nails Designer Studio<br>Palhoça • SC</span>
+                </div>
+              </div>
+              <a class="btn btn-secondary" href="https://maps.app.goo.gl/sgo7xtmHqxFV8XDq6" target="_blank" rel="noopener">Abrir no Google Maps</a>
+
+              <div class="mini-info">
+                <span class="location-pin">♡</span>
+                <div>
+                  <strong>Experiência</strong>
+                  <span>Peças escolhidas com carinho e novidades sempre.</span>
+                </div>
+              </div>
+
+              <a class="btn btn-primary" href="https://maps.app.goo.gl/sgo7xtmHqxFV8XDq6" target="_blank" rel="noopener">Ver localização</a>
+            </div>
+
+            <div class="visit-card" id="contato">
+              <h3>Fale com o Garimpo</h3>
+              <p>
+                Este espaço pode receber aqui o seu Instagram, WhatsApp, endereço
+                completo ou link para o mapa. Basta substituir os links abaixo
+                pelos canais oficiais da loja.
+              </p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="https://www.instagram.com/cjgarimpochic/" target="_blank" rel="noopener">Instagram</a>
+                <a class="btn btn-secondary" href="https://wa.me/5548999007998?text=Ol%C3%A1%20Garimpo%20Chic%21%20Gostaria%20de%20conhecer%20as%20pe%C3%A7as%20dispon%C3%ADveis." target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+              </p>
+            </div>
+          </div>
+
+          <div class="cta">
+            <div class="section-kicker">Garimpo Chic</div>
+            <h2>Garimpe.</h2>
+            <div class="script">Apaixone-se.</div>
+            <p style="margin:0 auto 26px;max-width:520px;color:#6e5b51;line-height:1.8;">
+              Use. Repita. E deixe seu estilo falar por você.
+            </p>
+            <a class="btn btn-primary" href="#inicio">Voltar ao início</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="imagens/logo2.png" alt="Garimpo Chic • Brechó" />
+          <span>GARIMPO CHIC • BRECHÓ</span>
+        </div>
+        <div class="footer-text">
+          MODA QUE TRANSFORMA • ESTILO QUE INSPIRA<br>
+          PALHOÇA • SC
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
